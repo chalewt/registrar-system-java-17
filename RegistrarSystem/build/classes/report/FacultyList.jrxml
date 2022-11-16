@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="FacultyList" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="786" leftMargin="28" rightMargin="28" topMargin="28" bottomMargin="28" uuid="00423a02-8f0d-409f-9f1d-ea385c963141">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT
+     FACULTY."FACULTY_NAME" AS FACULTY_FACULTY_NAME,
+     FACULTY."FACULTY_PHONE" AS FACULTY_FACULTY_PHONE,
+     FACULTY."FACULTY_FAX" AS FACULTY_FACULTY_FAX,
+     FACULTY."FACULTY_EMAIL" AS FACULTY_FACULTY_EMAIL,
+     FACULTY."FACULTY_BUILDING" AS FACULTY_FACULTY_BUILDING,
+     FACULTY."FACULTY_OFFICE" AS FACULTY_FACULTY_OFFICE
+FROM
+     "REGISTRAR"."FACULTY" FACULTY]]>
+	</queryString>
+	<field name="FACULTY_FACULTY_NAME" class="java.lang.String"/>
+	<field name="FACULTY_FACULTY_PHONE" class="java.lang.String"/>
+	<field name="FACULTY_FACULTY_FAX" class="java.lang.String"/>
+	<field name="FACULTY_FACULTY_EMAIL" class="java.lang.String"/>
+	<field name="FACULTY_FACULTY_BUILDING" class="java.lang.String"/>
+	<field name="FACULTY_FACULTY_OFFICE" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="62" splitType="Stretch">
+			<staticText>
+				<reportElement x="219" y="0" width="353" height="33" uuid="c7cd1751-c831-404e-8d0d-ff2d4d77945f"/>
+				<textElement textAlignment="Center">
+					<font size="24" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Debre Berhan University]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="219" y="33" width="353" height="20" uuid="6563bb50-d09d-46b2-95c8-703787f36cd0"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[College/Faculty List]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="58" width="786" height="1" uuid="f0f8e30e-437c-4336-946b-c8ddd1f61219"/>
+				<graphicElement>
+					<pen lineWidth="2.0" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<image>
+				<reportElement x="14" y="1" width="65" height="53" uuid="3e1b990f-15d5-4562-9e1f-d6944a0b15e0"/>
+				<imageExpression><![CDATA["C:\\Users\\ChalewT\\Documents\\NetBeansProjects\\JavaProject2009\\RegistrarSystem\\images\\dbulog.png"]]></imageExpression>
+			</image>
+			<image>
+				<reportElement x="708" y="1" width="66" height="53" uuid="295c42b9-3084-49af-90f2-e806bc235b2c"/>
+				<imageExpression><![CDATA["C:\\Users\\ChalewT\\Documents\\NetBeansProjects\\JavaProject2009\\RegistrarSystem\\images\\dbulog.png"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="20" splitType="Stretch">
+			<staticText>
+				<reportElement x="14" y="0" width="161" height="20" uuid="10412f2e-0f6e-4fc1-b051-b267ba546135"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Faculty/College]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="175" y="0" width="100" height="20" uuid="c892ccfd-4c6e-46b8-a811-c94b988edf29"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Phone]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="275" y="0" width="100" height="20" uuid="cc3a879d-ad39-4362-ac20-c1ad0c66404b"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Fax]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="375" y="0" width="180" height="20" uuid="caf21bd8-5a23-472d-b86d-ee063f4ca7db"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[E-mail]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="555" y="0" width="106" height="20" uuid="30e31f77-97e6-4736-9074-933b4d0fec0a"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Building No.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="661" y="0" width="100" height="20" uuid="b1a444f6-8522-4786-ac22-64b5347f30ec"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Office No.]]></text>
+			</staticText>
+			<line>
+				<reportElement x="4" y="1" width="770" height="1" uuid="cefa5e1d-a96f-4463-b8af-96c4c5ea577c"/>
+			</line>
+			<line>
+				<reportElement x="4" y="19" width="770" height="1" uuid="1c29a148-1499-4d75-bca1-90d7648811a0"/>
+			</line>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement x="14" y="0" width="161" height="20" uuid="06c8503b-bb00-45ee-b9b1-27b3ec4ebd4f"/>
+				<textFieldExpression><![CDATA[$F{FACULTY_FACULTY_NAME}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="175" y="0" width="100" height="20" uuid="40ee6cb0-29c4-4a3e-9bfd-192f0e25f48e"/>
+				<textFieldExpression><![CDATA[$F{FACULTY_FACULTY_PHONE}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="275" y="0" width="100" height="20" uuid="452a0874-44aa-4834-adbd-022752101655"/>
+				<textFieldExpression><![CDATA[$F{FACULTY_FACULTY_FAX}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="375" y="0" width="180" height="20" uuid="f4a0a00e-04fe-4b61-8b8f-6a9275cb678c"/>
+				<textFieldExpression><![CDATA[$F{FACULTY_FACULTY_EMAIL}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="555" y="0" width="106" height="20" uuid="c090866b-b610-4443-98d6-d67792c1d572"/>
+				<textFieldExpression><![CDATA[$F{FACULTY_FACULTY_BUILDING}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="661" y="0" width="100" height="20" uuid="0e6fb561-3345-4f03-8890-0002d2f4c825"/>
+				<textFieldExpression><![CDATA[$F{FACULTY_FACULTY_OFFICE}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement x="393" y="0" width="256" height="20" uuid="01e9cbb7-cf46-42a0-b4ff-75c9be8bb3f0"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font isBold="true" isItalic="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="649" y="0" width="137" height="20" uuid="8c3e160e-8613-494b-8dd1-df2216098eb6"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true" isItalic="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="1" width="786" height="2" uuid="c98bc11e-8ae6-4cc8-aaee-c4d0f0bd3cf3"/>
+				<graphicElement>
+					<pen lineWidth="1.5" lineColor="#333333"/>
+				</graphicElement>
+			</line>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="14" y="0" width="249" height="20" uuid="501015ea-8d08-479d-b7fc-1a114a6afe0e"/>
+				<textElement verticalAlignment="Middle">
+					<font isItalic="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+</jasperReport>

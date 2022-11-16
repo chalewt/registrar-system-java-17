@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="College/Department List" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="786" leftMargin="28" rightMargin="28" topMargin="28" bottomMargin="28" whenResourceMissingType="Empty" uuid="010d075a-1b8a-4ca5-a355-924c3fde6c22">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" forecolor="#FFFFFF" fontName="Times New Roman" fontSize="50" isBold="false" pdfFontName="Times-Bold"/>
+	<style name="SubTitle" forecolor="#CCCCCC" fontName="Times New Roman" fontSize="18" isBold="false" pdfFontName="Times-Roman"/>
+	<style name="Column header" forecolor="#666666" fontName="Times New Roman" fontSize="14" isBold="true" pdfFontName="Times-Roman"/>
+	<style name="Detail" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman"/>
+	<style name="Row" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+			<style mode="Opaque" backcolor="#F0EFEF"/>
+		</conditionalStyle>
+	</style>
+	<queryString language="SQL">
+		<![CDATA[SELECT
+     FACULTY."FACULTY_NAME" AS FACULTY_FACULTY_NAME,
+     FACULTY."FACULTY_PHONE" AS FACULTY_FACULTY_PHONE,
+     FACULTY."FACULTY_FAX" AS FACULTY_FACULTY_FAX,
+     FACULTY."FACULTY_EMAIL" AS FACULTY_FACULTY_EMAIL,
+     FACULTY."FACULTY_BUILDING" AS FACULTY_FACULTY_BUILDING,
+     FACULTY."FACULTY_OFFICE" AS FACULTY_FACULTY_OFFICE,
+     DEPARTMENT."DEPT_NAME" AS DEPARTMENT_DEPT_NAME,
+     DEPARTMENT."DEPT_PHONE" AS DEPARTMENT_DEPT_PHONE,
+     DEPARTMENT."DEPT_FAX" AS DEPARTMENT_DEPT_FAX,
+     DEPARTMENT."DEPT_EMAIL" AS DEPARTMENT_DEPT_EMAIL,
+     DEPARTMENT."DEPT_FACULTY_CODE" AS DEPARTMENT_DEPT_FACULTY_CODE,
+     DEPARTMENT."DEPT_BUILDING" AS DEPARTMENT_DEPT_BUILDING,
+     DEPARTMENT."DEPT_OFFICE" AS DEPARTMENT_DEPT_OFFICE
+FROM
+     "REGISTRAR"."FACULTY" FACULTY INNER JOIN "REGISTRAR"."DEPARTMENT" DEPARTMENT ON FACULTY."FACULTY_CODE" = DEPARTMENT."DEPT_FACULTY_CODE"]]>
+	</queryString>
+	<field name="FACULTY_FACULTY_NAME" class="java.lang.String"/>
+	<field name="FACULTY_FACULTY_PHONE" class="java.lang.String"/>
+	<field name="FACULTY_FACULTY_FAX" class="java.lang.String"/>
+	<field name="FACULTY_FACULTY_EMAIL" class="java.lang.String"/>
+	<field name="FACULTY_FACULTY_BUILDING" class="java.lang.String"/>
+	<field name="FACULTY_FACULTY_OFFICE" class="java.lang.String"/>
+	<field name="DEPARTMENT_DEPT_NAME" class="java.lang.String"/>
+	<field name="DEPARTMENT_DEPT_PHONE" class="java.lang.String"/>
+	<field name="DEPARTMENT_DEPT_FAX" class="java.lang.String"/>
+	<field name="DEPARTMENT_DEPT_EMAIL" class="java.lang.String"/>
+	<field name="DEPARTMENT_DEPT_FACULTY_CODE" class="java.math.BigDecimal"/>
+	<field name="DEPARTMENT_DEPT_BUILDING" class="java.lang.String"/>
+	<field name="DEPARTMENT_DEPT_OFFICE" class="java.lang.String"/>
+	<group name="FACULTY_FACULTY_NAME">
+		<groupExpression><![CDATA[$F{FACULTY_FACULTY_NAME}]]></groupExpression>
+		<groupHeader>
+			<band height="30">
+				<frame>
+					<reportElement mode="Opaque" x="2" y="3" width="784" height="24" forecolor="#B89F7D" backcolor="#000000" uuid="4ce7dfb6-fbea-475c-9f53-a437fba7d5c2"/>
+					<textField isStretchWithOverflow="true">
+						<reportElement style="SubTitle" x="0" y="1" width="768" height="23" forecolor="#FFFFFF" uuid="92dce5a9-2522-45b0-9370-a2fe6155a699"/>
+						<textElement>
+							<font isBold="false"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$F{FACULTY_FACULTY_NAME}]]></textFieldExpression>
+					</textField>
+				</frame>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="6"/>
+		</groupFooter>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="102" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="0" y="0" width="786" height="66" backcolor="#000000" uuid="914867f4-e889-4d2b-910d-82618b86fc08"/>
+				<staticText>
+					<reportElement style="Title" x="0" y="0" width="454" height="66" uuid="7de72dce-315a-4972-899a-ac3774a51cce"/>
+					<box topPadding="4" leftPadding="4" bottomPadding="4" rightPadding="4"/>
+					<textElement verticalAlignment="Bottom">
+						<font size="40" isBold="false"/>
+					</textElement>
+					<text><![CDATA[Debre Berhan University]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="SubTitle" x="454" y="37" width="316" height="29" uuid="5ae281dd-20b2-4e54-8ac7-4cb06258edf8"/>
+					<textElement textAlignment="Right">
+						<font size="24" isBold="false"/>
+					</textElement>
+					<text><![CDATA[Faculty List]]></text>
+				</staticText>
+			</frame>
+			<frame>
+				<reportElement mode="Opaque" x="0" y="70" width="786" height="32" forecolor="#000000" backcolor="#CC0000" uuid="b46c97b0-a3c9-4751-8f0b-432741d9cc21"/>
+				<textField pattern="EEEEE dd MMMMM yyyy">
+					<reportElement x="626" y="12" width="144" height="20" forecolor="#FFFFFF" uuid="e27107f1-6da7-4eb4-b895-f791a69cef3b"/>
+					<textElement textAlignment="Right">
+						<font size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="18" splitType="Stretch">
+			<staticText>
+				<reportElement style="Column header" x="439" y="0" width="149" height="18" forecolor="#000000" uuid="3298563e-a441-418b-b9ac-30f980e36455"/>
+				<textElement>
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[Dept Phone]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="588" y="0" width="182" height="18" forecolor="#000000" uuid="a80c8b48-38a1-4551-8659-58c30c9a619f"/>
+				<textElement>
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[Dept Fax]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="132" y="0" width="307" height="18" forecolor="#000000" uuid="abb12175-7335-4c37-b2f9-6b1d38cf588b"/>
+				<textElement>
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[DEPARTMENT ]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="18" splitType="Stretch">
+			<frame>
+				<reportElement style="Row" mode="Opaque" x="0" y="0" width="797" height="18" uuid="f7eb167e-0380-4dc1-ba86-5f6e3fdeea19"/>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="132" y="0" width="307" height="18" uuid="12b41d73-6b8b-45c7-889f-b47c1fe1dddc"/>
+					<textElement>
+						<font size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{DEPARTMENT_DEPT_NAME}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement style="Detail" positionType="Float" x="439" y="0" width="149" height="18" uuid="317d243a-d903-4ab6-8544-beb6e671d316"/>
+					<textElement>
+						<font size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{DEPARTMENT_DEPT_PHONE}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement style="Detail" positionType="Float" x="588" y="0" width="182" height="18" uuid="b92cd601-04eb-4bae-af64-eb6436b63e50"/>
+					<textElement>
+						<font size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{DEPARTMENT_DEPT_FAX}]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="7" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="3" width="555" height="1" uuid="4b244d66-1062-4b54-8252-dfe91c253d0e"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="25" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="0" y="0" width="802" height="25" forecolor="#D0B48E" backcolor="#000000" uuid="0ba7638c-57d7-49b6-b65a-ad7909edaece"/>
+				<textField evaluationTime="Report">
+					<reportElement style="Column header" x="681" y="3" width="89" height="20" forecolor="#FFFFFF" uuid="be4da437-5c32-4a3e-b615-2dba15f37444"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Column header" x="473" y="3" width="208" height="20" forecolor="#FFFFFF" uuid="8f6241e0-7607-45c3-91b4-815ff78944a6"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+				</textField>
+				<textField pattern="EEEEE dd MMMMM yyyy">
+					<reportElement style="Column header" x="2" y="3" width="197" height="20" forecolor="#FFFFFF" uuid="e724a14f-d9f5-4513-9114-297cf6b4af4d"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>
